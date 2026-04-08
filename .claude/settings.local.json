@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(claude-api)",
+      "Bash(go mod:*)",
+      "Bash(mkdir -p cmd/blaze-claw internal/agent internal/tools/builtin internal/skills pkg/blaze)",
+      "Bash(go get:*)",
+      "Bash(go build:*)",
+      "Bash(go test:*)",
+      "WebFetch(domain:openclaw.ai)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(rm:*)",
+      "Bash(gh auth:*)",
+      "Bash(xargs -0 sed -i '' -e 's|github\\\\.com/blaze-claw/blaze-claw|github.com/akshaymemane/superclaw|g' -e 's|blaze-claw/blaze-claw|akshaymemane/superclaw|g' -e 's|\"blaze-claw\"|\"superclaw\"|g' -e 's|blaze-claw-website|superclaw-website|g' -e 's|pkg/blaze|pkg/superclaw|g' -e 's|package blaze|package superclaw|g' -e 's|\\\\\"blaze\\\\\"|\\\\\"superclaw\\\\\"|g' -e s/BLAZE_WORKDIR/SUPERCLAW_WORKDIR/g -e s/BLAZE_CONFIG/SUPERCLAW_CONFIG/g -e 's/blaze\\\\.json/superclaw.json/g' -e s/blaze_claw/superclaw/g -e s/blazeclaw/superclaw/g -e 's/\\\\.blaze-claw/.superclaw/g')",
+      "Bash(sed -i '' 's|blaze-claw  task:|superclaw  task:|g; s|usage: blaze-claw|usage: superclaw|g' cmd/superclaw/main.go)",
+      "Bash(sed -i '' 's|-o /out/blaze-claw ./cmd/blaze-claw|-o /out/superclaw ./cmd/superclaw|g' deploy/docker/Dockerfile)",
+      "Bash(sed -i '' 's|COPY --from=builder /out/blaze-claw /usr/local/bin/blaze-claw|COPY --from=builder /out/superclaw /usr/local/bin/superclaw|g' deploy/docker/Dockerfile)",
+      "Bash(sed -i '' 's|exec blaze-claw|exec superclaw|g' deploy/docker/entrypoint.sh)",
+      "Bash(sed -i '' 's|passed straight to blaze-claw|passed straight to superclaw|g' deploy/docker/entrypoint.sh)",
+      "Bash(sed -i '' -e 's|`blaze-claw` should borrow|`superclaw` should borrow|g' -e 's|`blaze-claw` should prefer|`superclaw` should prefer|g' -e 's|cmd/blaze-claw/|cmd/superclaw/|g' -e 's|pkg/superclawclaw/|pkg/superclaw/|g' -e 's|`pkg/superclawclaw/`|`pkg/superclaw/`|g' -e 's|blaze-claw-data:/data|superclaw-data:/data|g' -e 's|blaze-claw:latest|superclaw:latest|g' ARCHITECTURE.md)",
+      "Bash(sed -i '' -e 's|**blaze-claw**|**superclaw**|g' -e 's|go run ./cmd/blaze-claw|go run ./cmd/superclaw|g' -e 's|cmd/blaze-claw/|cmd/superclaw/|g' CLAUDE.md)",
+      "Bash(gh repo:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git rm:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(rm -rf .git)",
+      "Bash(rm -rf /tmp/superclaw-website)",
+      "Bash(cp -r /Users/apple/workspace/blaze-claw/website /tmp/superclaw-website)"
+    ]
+  }
+}

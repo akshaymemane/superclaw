@@ -1,0 +1,21 @@
+{
+  "model": "claude-opus-4-6",
+  "max_steps": 20,
+  "max_tokens": 16000,
+  "timeout_seconds": 300,
+  "work_dir": ".",
+  "max_fetch_calls": 10,
+  "tools": [
+    "fetch_url",
+    "web_search",
+    "read_file",
+    "write_file",
+    "run_bash",
+    "list_files",
+    "patch_file"
+  ],
+  "skills": [
+    "coding"
+  ],
+  "system_prompt": ""
+}

@@ -1,0 +1,29 @@
+services:
+  superclaw:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SUPERCLAW_WORKDIR=/workspace
+      # Optional: path to superclaw.json inside the container
+      # - SUPERCLAW_CONFIG=/workspace/superclaw.json
+    volumes:
+      - ${HOST_WORKDIR:-.}:/workspace        # project files (bind mount)
+      - blaze-data:/data                      # transcripts and runtime state
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: 512m
+    cpus: "1.0"
+    restart: "no"
+    # Pass the task as the command:
+    #   docker compose run --rm superclaw "summarize the README"
+
+volumes:
+  blaze-data:
